@@ -3,7 +3,7 @@ const Product = require("./model/Product");
 const getProduct = async (req, res) => {
   try {
     const product = await Product.find();
-    if (product.length < 1) {
+    if (!product) {
       return res.status(404).json({
         data: [],
         statusCode: 404,
